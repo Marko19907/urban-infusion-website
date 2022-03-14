@@ -1,4 +1,4 @@
-import {Box, Container, Typography} from "@mui/material";
+import {Box, Typography} from '@mui/material';
 import CoffeeOutlinedIcon from '@mui/icons-material/CoffeeOutlined';
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
 
 Logo.stateProps = {
     clickable: false
-}
+};
 
 export default function Logo(props: Props) {
     return (
@@ -47,5 +47,5 @@ export default function Logo(props: Props) {
                 />
             </Box>
         </>
-    )
+    );
 }

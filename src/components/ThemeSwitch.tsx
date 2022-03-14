@@ -1,6 +1,6 @@
-import {IconButton, styled, Switch} from "@mui/material";
-import {IconButtonProps, IconButtonTypeMap} from "@mui/material/IconButton/IconButton";
-import {ExtendButtonBase} from "@mui/material/ButtonBase";
+import {IconButton, styled, Switch} from '@mui/material';
+import {IconButtonProps, IconButtonTypeMap} from '@mui/material/IconButton/IconButton';
+import {ExtendButtonBase} from '@mui/material/ButtonBase';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 
@@ -21,5 +21,5 @@ export function ThemeSwitch(props: Props) {
                 }
             </IconButton>
         </>
-    )
+    );
 }

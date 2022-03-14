@@ -1,13 +1,12 @@
-import {Grid, Typography} from "@mui/material";
-import Logo from "../components/Logo";
-import Section from "../components/Wrappers/Section";
+import {Grid, Typography} from '@mui/material';
+import Logo from '../components/Logo';
+import Section from '../components/Wrappers/Section';
 
 
 export default function Footer() {
     return (
         <>
             <Section
-                height={300}
                 sx={{
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -16,10 +15,10 @@ export default function Footer() {
                 }}
             >
                 <Logo/>
-                <Typography variant={"body2"} sx={{fontWeight: 'fontWeightBold'}}>
+                <Typography variant={'body2'} sx={{fontWeight: 'fontWeightBold'}}>
                     Copyright © {new Date().getFullYear()} Urban Infusion
                 </Typography>
             </Section>
         </>
-    )
+    );
 }

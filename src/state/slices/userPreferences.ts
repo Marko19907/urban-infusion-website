@@ -1,4 +1,4 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 export type Theme = 'light' | 'dark';
 
@@ -8,7 +8,7 @@ export interface UserPreferences {
 
 const initialState: UserPreferences = {
     theme: 'light',
-}
+};
 
 export const userPreferencesSlice = createSlice({
     name: 'userPreferences',
@@ -21,4 +21,4 @@ export const userPreferencesSlice = createSlice({
             state.theme = state.theme === 'light' ? 'dark' : 'light';
         }
     }
-})
+});

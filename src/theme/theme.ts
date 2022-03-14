@@ -1,4 +1,4 @@
-import {createTheme} from "@mui/material/styles";
+import {createTheme} from '@mui/material/styles';
 
 export const getTheme = (theme: 'light' | 'dark') => {
     return createTheme({
@@ -13,4 +13,4 @@ export const getTheme = (theme: 'light' | 'dark') => {
             },
         },
     });
-}
+};

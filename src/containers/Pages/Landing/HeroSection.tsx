@@ -1,78 +1,65 @@
-import {Box, Button, Grid, Typography} from "@mui/material";
-import {useNavigate} from "react-router-dom";
-import Section from "../../../components/Wrappers/Section";
+import {Box, Typography} from '@mui/material';
+import {useNavigate} from 'react-router-dom';
+import Section from '../../../components/Wrappers/Section';
+import StyledButton from '../../../components/StyledButton';
+import BackgroundImage from '../../../assets/images/hero-section.jpg';
 
 export default function HeroSection() {
-    const imageURL: string = 'https://picsum.photos/1600/900/?blur';
     const navigate = useNavigate();
 
     return (
         <>
             <Section
-                height={700}
-                backgroundUrl={imageURL}
+                backgroundUrl={BackgroundImage}
             >
                 <Box
-                    sx={theme => ({
+                    sx={{
+                        py: 16,
                         display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'center',
-                        alignItems: 'start',
+                        alignItems: {xs: 'center', md: 'start'},
                         width: '100%',
-                        [theme.breakpoints.down('md')]: {
-                            alignItems: 'center',
-                        }
-                    })}
+                    }}
                 >
                     <Box
-                        sx={theme => ({
+                        sx={{
                             display: 'flex',
                             flexDirection: 'column',
                             maxWidth: 500,
-                            alignItems: 'flex-start',
-                            [theme.breakpoints.down('md')]: {
-                                alignItems: 'center',
-                            }
-                        })}
+                            alignItems: {xs: 'center', md: 'flex-start'},
+                        }}
                     >
                         <Typography
                             variant={'h2'}
                             component={'h1'}
-                            sx={theme => ({
+                            sx={{
                                 color: 'white',
-                                textAlign: 'left',
                                 paddingBottom: 8,
-                                [theme.breakpoints.down('md')]: {
-                                    textAlign: 'center',
-                                }
-                            })}
+                                textAlign: {xs: 'center', md: 'left'},
+                            }}
                         >
                             Find your herbal friend
                         </Typography>
                         <Typography
                             variant={'h5'}
                             component={'h4'}
-                            sx={theme => ({
+                            sx={{
                                 color: 'white',
-                                textAlign: 'left',
-                                paddingBottom: 8,
-                                [theme.breakpoints.down('md')]: {
-                                    textAlign: 'center',
-                                }
-                            })}
+                                paddingBottom: 16,
+                                textAlign: {xs: 'center', md: 'left'},
+                            }}
                         >
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         </Typography>
-                        <Button
-                            variant={"contained"}
-                            size={'large'}
+                        <StyledButton
                             onClick={() => navigate('/products')}
                         >
                             Get started
-                        </Button>
+                        </StyledButton>
                     </Box>
                 </Box>
             </Section>
         </>
     );
-};
+}

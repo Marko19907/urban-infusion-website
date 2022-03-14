@@ -1,5 +1,5 @@
-import {Grid, Typography} from "@mui/material";
-import Section from "../../../components/Wrappers/Section";
+import {Grid, Typography} from '@mui/material';
+import Section from '../../../components/Wrappers/Section';
 
 export default function NotFound() {
     return (
@@ -10,5 +10,5 @@ export default function NotFound() {
                 </Grid>
             </Section>
         </>
-    )
+    );
 }
