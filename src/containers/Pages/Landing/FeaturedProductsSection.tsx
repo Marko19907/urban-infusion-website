@@ -20,7 +20,7 @@ export default function FeaturedProductsSection() {
                 >
                     <Typography
                         variant={'h4'}
-                        component={'h2'}
+                        component={'h4'}
                         sx={{
                             textAlign: 'center',
                             marginBottom: 12

@@ -1,10 +1,10 @@
 import {
     AppBar,
+    Avatar,
     Box,
     IconButton,
     Menu,
     MenuItem,
-    Skeleton,
     Slide,
     Toolbar,
     Typography,
@@ -13,13 +13,14 @@ import {
 import Logo from '../components/Logo';
 import {ReactElement, ReactNode, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-import {ThemeSwitch} from '../components/ThemeSwitch';
-import {useSelector} from 'react-redux';
-import {RootState, store} from '../state/store';
+import {ThemeSwitch} from '../components/NavigationBar/ThemeSwitch';
+import {store} from '../state/store';
 import {userPreferencesSlice} from '../state/slices/userPreferences';
 import MenuIcon from '@mui/icons-material/Menu';
 import {SxProps} from '@mui/system';
 import {Theme} from '@mui/material/styles';
+import CartButton from "../components/NavigationBar/CartButton";
+import AccountButton from "../components/NavigationBar/AccountButton";
 
 interface Props {
     children?: ReactElement;
@@ -28,7 +29,7 @@ interface Props {
 const pages = ['Products', 'About'];
 
 export default function NavigationBar(props: Props) {
-    const theme = useSelector((store: RootState) => store.userPreferences.theme);
+    const theme = store.getState().userPreferences.theme;
 
     const [anchorElNav, setAnchorElNav] = useState(null);
 
@@ -49,7 +50,7 @@ export default function NavigationBar(props: Props) {
     return (
         <>
             <HideOnScroll {...props}>
-                <AppBar color={'inherit'}>
+                <AppBar color={'inherit'} position={'sticky'}>
                     <Toolbar sx={{px: {md: 16, sx: 8}}}>
                         <Box
                             sx={{
@@ -97,14 +98,14 @@ export default function NavigationBar(props: Props) {
                                     flex: 1,
                                     display: 'flex',
                                     justifyContent: 'right',
-                                    alignItems: 'center',
-                                    justifySelf: 'right',
                                 }}
                             >
                                 <ThemeSwitch
                                     mode={theme}
                                     onClick={handleChangeTheme}
                                 />
+                                <CartButton itemsCount={5}/>
+                                <AccountButton/>
                             </Box>
                             <Menu
                                 anchorEl={anchorElNav}
