@@ -10,6 +10,7 @@ export default function AccountButton() {
                 <IconButton
                     onClick={() => navigate('/account/')}
                     sx={{
+                        // TODO Girts - you probably meant minWidth?
                         width: theme.mixins.toolbar.minHeight,
                         height: theme.mixins.toolbar.minHeight,
                     }}

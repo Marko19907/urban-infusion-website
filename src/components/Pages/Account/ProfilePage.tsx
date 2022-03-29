@@ -50,7 +50,7 @@ function AccountCard(props: CardProps) {
     );
 }
 
-
+// TODO Girts - missing space. Good habit to press "Auto format" now and then :)
 export default function ProfilePage(){
     return (<AccountCard header={'Shipping Information'}/>);
 

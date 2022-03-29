@@ -1,6 +1,6 @@
 # Website
 
-
+# TODO Girts - you probably want to clean up the auto-generated files? :)
 
 ## Getting started
 

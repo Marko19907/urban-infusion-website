@@ -16,6 +16,7 @@ export default function CartButton(props: Props) {
                 <IconButton
                     onClick={() => navigate('/cart')}
                     sx={{
+                        // TODO Girts - you probably meant minWidth?
                         width: theme.mixins.toolbar.minHeight,
                         height: theme.mixins.toolbar.minHeight,
                     }}

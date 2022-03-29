@@ -26,6 +26,7 @@ export default function FeaturesSection() {
                     />*/}
                     <Feature
                         header={'Black tea'}
+                        // TODO Girts - these texts will be loaded dynamically from the data, right?
                         description={{
                             flavor: 'Comforting flavors of honey, stone fruits, or roasted almonds and much more',
                             benefits: 'The nutrients in black tea may reduce the risk of cancer, protect the heart against atherosclerosis, and help maintain a healthy blood pressure.',
