@@ -5,9 +5,10 @@ import {Theme} from '@mui/material/styles';
 
 interface Props {
     children?: ReactNode;
-    height?: number;
+    height?: any;
     bgColor?: string;
     backgroundUrl?: string;
+    backgroundUrlMobile?: string;
     sx?: SxProps<Theme>;
 }
 
@@ -20,7 +21,10 @@ export default function Section(props: Props) {
                     height: props.height || undefined,
                     backgroundColor: props.bgColor || undefined,
                     justifyContent: 'center',
-                    backgroundImage: `url(${props.backgroundUrl || undefined})`,
+                    backgroundImage: {
+                        xs: `url(${props.backgroundUrlMobile || undefined})`,
+                        md: `url(${props.backgroundUrl || undefined})`,
+                    },
                     backgroundRepeat: 'no-repeat',
                     backgroundSize: 'cover',
                 }}
@@ -31,7 +35,7 @@ export default function Section(props: Props) {
                     sx={{
                         maxWidth: 'lg',
                         height: '100%',
-                        px: 8,
+                        mx: 8,
                         my: 32,
                         ...props.sx
                     }}

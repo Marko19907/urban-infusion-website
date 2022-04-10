@@ -1,11 +1,9 @@
-import {Box, Collapse, Divider, List, ListItemButton, ListItemText, ListSubheader} from '@mui/material';
+import {Box, Divider, List, ListItemButton, ListItemText, ListSubheader} from '@mui/material';
 import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
 
 interface Props {
-    items: Record<string, string[]>;
+    items?: string[];
     header?: string;
     path: string;
 }
@@ -29,12 +27,12 @@ export default function SideNavigation(props: Props) {
                     }
                 >
                     {
-                        Object.entries(props.items).map(([category, subcategories]) => (
+                        props.items &&
+                        props.items.map(category => (
                             <Category
                                 key={category}
                                 category={category}
                                 path={props.path}
-                                subcategories={subcategories}
                             />
                         ))
                     }
@@ -48,7 +46,6 @@ export default function SideNavigation(props: Props) {
 interface CategoryProps {
     path: string;
     category: string;
-    subcategories: string[];
 }
 
 function Category(props: CategoryProps) {
@@ -56,43 +53,16 @@ function Category(props: CategoryProps) {
 
     const navigate = useNavigate();
 
-    const hasSubcategories = props.subcategories.length > 0;
-
     return (
         <Box pb={4}>
             <ListItemButton
-                onClick={
-                    () => hasSubcategories
-                        ? setOpen(!open)
-                        : navigate(`/${props.path}/` + props.category)
-                }
+                onClick={() => navigate(`/${props.path}/` + props.category)}
             >
                 <ListItemText
                     sx={{textTransform: 'capitalize'}}
                     primary={props.category}
                 />
-                {
-                    hasSubcategories && (open ? <ExpandLess/> : <ExpandMore/>)
-                }
             </ListItemButton>
-            {
-                hasSubcategories &&
-                (<Collapse in={open}>
-                    <List disablePadding dense>
-                        {
-                            props.subcategories.map(subcategory => (
-                                <ListItemButton
-                                    key={subcategory}
-                                    sx={{paddingLeft: 8}}
-                                    onClick={() => navigate(`/${props.path}/` + subcategory)}
-                                >
-                                    <ListItemText sx={{textTransform: 'capitalize'}}>{subcategory}</ListItemText>
-                                </ListItemButton>
-                            ))
-                        }
-                    </List>
-                </Collapse>)
-            }
         </Box>
     );
 }

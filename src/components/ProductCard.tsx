@@ -1,9 +1,14 @@
 import {Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Typography} from '@mui/material';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import {SxProps} from '@mui/system';
+import {Theme} from '@mui/material/styles';
 
 interface Props {
     title?: string;
     price?: number;
     image_url?: string;
+    onClick?: () => void;
+    sx?: SxProps<Theme>;
 }
 
 ProductCard.defaultProps = {
@@ -15,18 +20,26 @@ export default function ProductCard(props: Props) {
     return (
         <>
             <Card
-                sx={{width: 250, height: 400}}
+                sx={{width: 200, height: 320, ...props.sx}}
             >
-                <CardActionArea>
+                <CardActionArea onClick={props.onClick}>
                     <CardMedia
                         component={'img'}
-                        height={250}
+                        height={200}
                         image={props.image_url}
+                        draggable={false}
+                        sx={{
+                            objectFit: 'contain',
+                        }}
                     />
-                    <CardContent>
+                    <CardContent
+                        sx={{
+                            padding: 0,
+                        }}
+                    >
                         <Typography
-                            gutterBottom
                             variant={'h5'}
+                            paddingBottom={1.5}
                             textAlign={'center'}
                             sx={{
                                 userSelect: 'text',
@@ -35,9 +48,8 @@ export default function ProductCard(props: Props) {
                             {props.title}
                         </Typography>
                         <Typography
-                            variant={'body1'}
+                            variant={'h6'}
                             textAlign={'center'}
-                            paddingBottom={1}
                             sx={{
                                 userSelect: 'text',
                             }}
@@ -56,6 +68,7 @@ export default function ProductCard(props: Props) {
                     <Button
                         variant={'contained'}
                         size={'small'}
+                        startIcon={<AddShoppingCartIcon/>}
                     >
                         Add to cart
                     </Button>

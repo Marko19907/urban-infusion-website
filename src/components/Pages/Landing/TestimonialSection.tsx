@@ -1,5 +1,5 @@
 import {Avatar, Box, Card, CardContent, Container, Typography} from '@mui/material';
-import Section from '../../../components/Wrappers/Section';
+import Section from '../../Wrappers/Section';
 
 
 interface TestimonialProps {

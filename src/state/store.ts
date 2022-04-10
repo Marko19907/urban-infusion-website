@@ -2,15 +2,18 @@ import {combineReducers, createStore, EnhancedStore} from '@reduxjs/toolkit';
 import {persistReducer, persistStore} from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import {UserPreferences, userPreferencesSlice} from './slices/userPreferences';
+import {Cart, cartSlice} from './slices/cart';
 
 // Root state that combines all the state types from the slices
 export interface RootState {
     userPreferences: UserPreferences;
+    cart: Cart;
 }
 
 // Root reducers that combines all the available reducers
 const rootReducer = combineReducers({
-    userPreferences: userPreferencesSlice.reducer
+    userPreferences: userPreferencesSlice.reducer,
+    cart: cartSlice.reducer
 });
 
 const persistConfig = {

@@ -10,6 +10,7 @@ export const getTheme = (theme: 'light' | 'dark') => {
             },
             secondary: {
                 main: '#F5A623',
+
             },
         },
     });

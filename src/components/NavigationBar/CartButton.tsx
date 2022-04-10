@@ -1,6 +1,6 @@
-import {Badge, IconButton, Tooltip, useTheme} from "@mui/material";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import {useNavigate} from "react-router-dom";
+import {Badge, IconButton, Tooltip, useTheme} from '@mui/material';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import {useNavigate} from 'react-router-dom';
 
 interface Props {
     itemsCount: number;
@@ -33,5 +33,5 @@ export default function CartButton(props: Props) {
                 </IconButton>
             </Tooltip>
         </>
-    )
+    );
 }

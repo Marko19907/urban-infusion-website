@@ -1,6 +1,5 @@
-import {IconButton, styled, Switch, useTheme} from '@mui/material';
-import {IconButtonProps, IconButtonTypeMap} from '@mui/material/IconButton/IconButton';
-import {ExtendButtonBase} from '@mui/material/ButtonBase';
+import {IconButton, useTheme} from '@mui/material';
+import {IconButtonProps} from '@mui/material/IconButton/IconButton';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 

@@ -1,5 +1,5 @@
-import {Avatar, IconButton, Tooltip, useTheme} from "@mui/material";
-import {useNavigate} from "react-router-dom";
+import {Avatar, IconButton, Tooltip, useTheme} from '@mui/material';
+import {useNavigate} from 'react-router-dom';
 
 export default function AccountButton() {
     const navigate = useNavigate();
@@ -18,5 +18,5 @@ export default function AccountButton() {
                 </IconButton>
             </Tooltip>
         </>
-    )
+    );
 }

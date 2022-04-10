@@ -7,6 +7,7 @@ export interface ProductDto {
     image: Object;
     title: string;
     description: string;
-    weigh: string;
+    weight: string;
     comments: CommentDto[];
+    category: string;
 }

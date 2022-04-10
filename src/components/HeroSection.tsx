@@ -1,16 +1,31 @@
 import {Box, Typography} from '@mui/material';
 import {useNavigate} from 'react-router-dom';
-import Section from '../../../components/Wrappers/Section';
-import StyledButton from '../../../components/StyledButton';
-import BackgroundImage from '../../../assets/images/hero-section.jpg';
+import Section from './Wrappers/Section';
+import StyledButton from './StyledButton';
+import BackgroundImage from '../assets/images/hero-section.jpg';
 
-export default function HeroSection() {
+interface Props {
+    title?: string;
+    description?: string;
+    backgroundUrl?: string;
+    backgroundUrlMobile?: string;
+}
+
+HeroSection.defaultProps = {
+    backgroundUrl: BackgroundImage,
+    // backgroundUrlMobile: 'https://i.imgur.com/cGWuYIr.jpg' // mobile 1
+    // backgroundUrlMobile: 'https://i.imgur.com/tUtZZfJ.jpg' // mobile 2
+    backgroundUrlMobile: 'https://i.imgur.com/fBLkybq.jpg' // mobile 3
+};
+
+export default function HeroSection(props: Props) {
     const navigate = useNavigate();
 
     return (
         <>
             <Section
-                backgroundUrl={BackgroundImage}
+                backgroundUrl={props.backgroundUrl}
+                backgroundUrlMobile={props.backgroundUrlMobile}
             >
                 <Box
                     sx={{
@@ -39,7 +54,7 @@ export default function HeroSection() {
                                 textAlign: {xs: 'center', md: 'left'},
                             }}
                         >
-                            Find your herbal friend
+                            {props.title}
                         </Typography>
                         <Typography
                             variant={'h5'}
@@ -50,7 +65,7 @@ export default function HeroSection() {
                                 textAlign: {xs: 'center', md: 'left'},
                             }}
                         >
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            {props.description}
                         </Typography>
                         <StyledButton
                             onClick={() => navigate('/products')}
