@@ -1,93 +1,104 @@
-# Website
+# Urban Infusion website, group 7
 
+This repository contains the frontend made for the Web Technologies (IDATA2301) project.
 
+### Built With
+* [React](https://reactjs.org) - A JavaScript framework for building user interfaces.
+* [TypeScript](https://www.typescriptlang.org) - A superset of JavaScript that adds static typing.
+* [Yarn](https://github.com/yarnpkg/yarn) - Our package manager.
+* [Vite](https://github.com/vitejs/vite) - A fast, next-gen frontend build tool.
+* [Material UI](https://mui.com) - React component library.
+* [JWT](https://github.com/jwtk/jjwt) - As the authentication mechanism.
+* [Netlify](https://www.netlify.com) - Used to deploy the website.
 
-## Getting started
+## Getting Started
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+To get a local copy up and running follow these simple steps.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+### Prerequisites
 
-## Add your files
+This is a list of things you need in order to use this application.
 
-- [ ] [Create](https://gitlab.com/-/experiment/new_project_readme_content:d8353ee6361c34f99dfc74b2ceee7ce2?https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://gitlab.com/-/experiment/new_project_readme_content:d8353ee6361c34f99dfc74b2ceee7ce2?https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://gitlab.com/-/experiment/new_project_readme_content:d8353ee6361c34f99dfc74b2ceee7ce2?https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+* Node.js
+* Yarn
 
+#### Downloading the project
+
+**Via HTTPS:**
+```sh
+git clone https://gitlab.com/web-development-group7/website.git
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/web-development-group7/website.git
-git branch -M main
-git push -uf origin main
+**Via SSH:**
+```sh
+git clone git@gitlab.com:web-development-group7/website.git
 ```
+or download it directly as a zip from [here](https://gitlab.com/web-development-group7/website/-/archive/main/website-main.zip).
 
-## Integrate with your tools
+### Usage methods
 
-- [ ] [Set up project integrations](https://gitlab.com/-/experiment/new_project_readme_content:d8353ee6361c34f99dfc74b2ceee7ce2?https://gitlab.com/web-development-group7/website/-/settings/integrations)
+#### Netlify deployment [Recommended]
 
-## Collaborate with your team
+1. Head to [https://urbaninfusion.netlify.app](https://urbaninfusion.netlify.app) to see the website in operation. <br>
+   This is the preferred method.
 
-- [ ] [Invite team members and collaborators](https://gitlab.com/-/experiment/new_project_readme_content:d8353ee6361c34f99dfc74b2ceee7ce2?https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://gitlab.com/-/experiment/new_project_readme_content:d8353ee6361c34f99dfc74b2ceee7ce2?https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://gitlab.com/-/experiment/new_project_readme_content:d8353ee6361c34f99dfc74b2ceee7ce2?https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://gitlab.com/-/experiment/new_project_readme_content:d8353ee6361c34f99dfc74b2ceee7ce2?https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://gitlab.com/-/experiment/new_project_readme_content:d8353ee6361c34f99dfc74b2ceee7ce2?https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+### Other usage methods
 
-## Test and Deploy
+#### Via Vite
 
-Use the built-in continuous integration in GitLab.
+1. Make sure you have installed Node.js and Yarn on the system.
+2. Download and the extract zip-file **or** clone project to the desired location as specified in the ["Downloading the project"](#downloading-the-project) section.
+3. Run the command `yarn install` in the project root.
+4. After all the dependencies of project of the project are installed, run the command `vite` in the project root.
+5. The website should then be available at [http://localhost:3000](http://localhost:3000)
 
-- [ ] [Get started with GitLab CI/CD](https://gitlab.com/-/experiment/new_project_readme_content:d8353ee6361c34f99dfc74b2ceee7ce2?https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://gitlab.com/-/experiment/new_project_readme_content:d8353ee6361c34f99dfc74b2ceee7ce2?https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://gitlab.com/-/experiment/new_project_readme_content:d8353ee6361c34f99dfc74b2ceee7ce2?https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://gitlab.com/-/experiment/new_project_readme_content:d8353ee6361c34f99dfc74b2ceee7ce2?https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://gitlab.com/-/experiment/new_project_readme_content:d8353ee6361c34f99dfc74b2ceee7ce2?https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+## Project requirements
 
-***
+The application has two main roles:
+1. Admin
+2. User
 
-# Editing this README
+An admin can do everything that a user can but admins can access extra functionality that is not available to users.
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!).  Thank you to [makeareadme.com](https://www.makeareadme.com) for this template.
+A user can:
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+* [x] Signup and log in
+* [x] View products
+* [x] Send in an order
+* [x] Write a comment for a product
+* [x] Edit their own comment
+* [x] See other user's comments
 
-## Name
-Choose a self-explaining name for your project.
+An admin can:
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+* [x] Add a new product
+* [x] Update a product
+* [x] Delete a product
+* [x] See all user orders
+* [x] Mark an order as processed
+* [x] See all user comments for each product
+* [x] Delete any user comment
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+#### Non-functional requirements for the project
+* Responsive design.
+* Load data from the backend.
+* Follow universal design (accessibility) principles.
+* Look aesthetically pleasing, according to current “website trends”.
+* Topic is provided by the professor.
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+Our app currently has a predefined admin user and a regular user used under testing:
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+_Admin:_
+* username: admin
+* password: admin
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+_User:_
+* username: user
+* password: user
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+Note: These predefined users are **only** meant to be used for demo and development purposes, they should not be included in a real scenario.
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+## Disclaimers
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
-
+* All product images used were fetched from [pngegg.com](https://www.pngegg.com) and are covered by their _non-commercial use only_ license.
+* Icons used were either provided by the Material UI component library, provided by the companies themselves, or fetched from [fontawesome.com](https://fontawesome.com)
+* The user images used in this project have been generated by an AI and do not depict any person currently alive or dead.

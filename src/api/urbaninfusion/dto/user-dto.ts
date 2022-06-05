@@ -1,7 +1,15 @@
+export enum UserRole {
+    USER = 'USER',
+    ADMIN = 'ADMIN'
+}
+
 export interface UserDto {
-    id: number;
-    username: string;
-    admin: boolean;
     email: string;
-    password: string;
+    username: string;
+    city: string;
+    zipcode: string;
+    address: string;
+    phone_number: string;
+    role: UserRole;
+    id: number;
 }

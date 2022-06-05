@@ -1,26 +1,14 @@
-import {createDraftSafeSelector, createEntityAdapter, createSlice, EntityState, PayloadAction} from '@reduxjs/toolkit';
+import {createSlice, Draft, PayloadAction} from '@reduxjs/toolkit';
 import {ProductDto} from '../../api/urbaninfusion/dto/product-dto';
 
 export type CartItem = ProductDto;
 
 export interface Cart {
-    items: EntityState<CartItem>;
+    items: CartItem[];
 }
 
-const cartAdapter = createEntityAdapter<CartItem>({
-    selectId: (item) => item.id,
-    sortComparer: (a, b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase()),
-});
-
-const selectState = (state: Cart) => state;
-
-export const selectCartItems = createDraftSafeSelector(
-    selectState,
-    state => cartAdapter.getSelectors().selectAll(state.items)
-);
-
-const initialState: Cart = {
-    items: cartAdapter.getInitialState()
+const initialState = {
+    items: []
 };
 
 export const cartSlice = createSlice({
@@ -28,11 +16,20 @@ export const cartSlice = createSlice({
     initialState: initialState,
     reducers: {
         reset: () => initialState,
-        set: (state, action: PayloadAction<CartItem[]>) => {
-            cartAdapter.setAll(state.items, action);
+        set: (state: Draft<Cart>, action: PayloadAction<CartItem[]>) => {
+            state.items = action.payload;
         },
-        add: (state, action: PayloadAction<CartItem>) => {
-            cartAdapter.addOne(state.items, action);
+        addOne: (state: Draft<Cart>, action: PayloadAction<CartItem>) => {
+            state.items.push(action.payload);
         },
+        addMany: (state: Draft<Cart>, action: PayloadAction<CartItem[]>) => {
+            state.items = state.items.concat(action.payload);
+        },
+        removeOne: (state: Draft<Cart>, action: PayloadAction<CartItem>) => {
+            const index = state.items.findIndex(e => e.id === action.payload.id);
+            if (index > -1) {
+                state.items.splice(index, 1);
+            }
+        }
     }
 });

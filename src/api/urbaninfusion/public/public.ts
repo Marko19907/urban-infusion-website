@@ -1,1 +1,1 @@
-export const baseUrl = `https://appdevgr07.strazdins.lv:8080`;
+export const baseUrl = import.meta.env.VITE_APP_API_BASE_URL;

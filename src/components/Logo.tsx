@@ -1,51 +1,41 @@
-import {Box, Typography} from '@mui/material';
-import CoffeeOutlinedIcon from '@mui/icons-material/CoffeeOutlined';
+import {Box, Stack, Typography, useTheme} from '@mui/material';
+import EmojiFoodBeverageIcon from '@mui/icons-material/EmojiFoodBeverage';
 
 interface Props {
     clickable?: boolean;
     onClick?: () => void;
-    sx?: any;
 }
 
-Logo.stateProps = {
-    clickable: false
-};
-
 export default function Logo(props: Props) {
+    const theme = useTheme();
     return (
         <>
-            <Box
+            <Stack
+                direction={'row'}
+                alignItems={'center'} justifyContent={'center'}
                 onClick={props.onClick}
                 sx={{
-                    ...props.sx,
-                    display: 'flex',
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    justifyContent: 'center',
                     userSelect: 'none',
                     cursor: props.clickable ? 'pointer' : undefined,
                 }}
             >
-                <Box
-                    sx={{
-                        textAlign: 'right',
-                    }}
-                >
-                    <Typography variant={'h4'}>
+                <Stack textAlign={'right'} spacing={-3}>
+                    <Typography variant={'h4'} fontFamily={'Yeseva One'}>
                         Urban
                     </Typography>
-                    <Typography marginTop={-3} variant={'h6'} style={{color: '#7DDC6A'}}>
+                    <Typography variant={'h6'} fontFamily={'Yeseva One'} style={{color: theme.palette.primary.main}}>
                         Infusion
                     </Typography>
-                </Box>
-                <Box
+                </Stack>
+                <Stack
                     sx={{
+                        color: theme.palette.primary.main,
                         width: '2.2em',
                         height: '2.2em'
                     }}
-                    component={CoffeeOutlinedIcon}
+                    component={EmojiFoodBeverageIcon}
                 />
-            </Box>
+            </Stack>
         </>
     );
 }
