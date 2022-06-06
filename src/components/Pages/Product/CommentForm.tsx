@@ -1,5 +1,4 @@
 import {Button, Stack, TextField} from '@mui/material';
-import PublishIcon from '@mui/icons-material/Publish';
 import {useState} from 'react';
 
 interface Props {

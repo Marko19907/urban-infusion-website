@@ -1,4 +1,3 @@
-import {store} from '../../state/store';
 import {useMutation, useQueryClient} from 'react-query';
 import {UserDto} from '../../api/urbaninfusion/dto/user-dto';
 import {changePassword} from '../../api/urbaninfusion/public/users';

@@ -1,6 +1,6 @@
 import {Stack, Typography, useTheme} from '@mui/material';
 import React from 'react';
-import {OrderDto, OrderStatus, OrderStatusUpdateDto} from '../../../api/urbaninfusion/dto/order-dto';
+import {OrderDto, OrderStatusUpdateDto} from '../../../api/urbaninfusion/dto/order-dto';
 import Order from './Order';
 
 interface Props {

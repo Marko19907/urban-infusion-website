@@ -1,7 +1,6 @@
 import {Chip, Grid, Stack, Typography} from '@mui/material';
 import {ReactNode} from 'react';
 import {SxProps} from '@mui/system';
-import {Theme} from '@mui/material/styles';
 
 interface Props {
     children?: ReactNode;
@@ -9,7 +8,7 @@ interface Props {
     bgColor?: string;
     backgroundUrl?: string;
     backgroundUrlMobile?: string;
-    sx?: SxProps<Theme>;
+    sx?: SxProps;
     label?: string;
 }
 

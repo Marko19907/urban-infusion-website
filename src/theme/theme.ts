@@ -1,4 +1,4 @@
-import {createTheme} from '@mui/material/styles';
+import {createTheme} from '@mui/material/styles/index';
 
 declare module '@mui/material/styles' {
     interface Theme {

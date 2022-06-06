@@ -1,4 +1,4 @@
-import {Box, Stack, Typography, useTheme} from '@mui/material';
+import {Stack, Typography, useTheme} from '@mui/material';
 import EmojiFoodBeverageIcon from '@mui/icons-material/EmojiFoodBeverage';
 
 interface Props {

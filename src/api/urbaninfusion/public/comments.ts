@@ -1,4 +1,4 @@
-import {AddProductDto, ProductDto} from '../dto/product-dto';
+import {ProductDto} from '../dto/product-dto';
 import {store} from '../../../state/store';
 import axios from 'axios';
 import {baseUrl} from './public';

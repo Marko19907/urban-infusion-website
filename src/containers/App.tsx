@@ -18,7 +18,6 @@ import Profile from './Pages/Account/Profile';
 import Orders from './Pages/Account/Orders';
 import ManageOrders from './Pages/Account/ManageOrders';
 import ManageProducts from './Pages/Account/ManageProducts';
-import {ReactQueryDevtools} from 'react-query/devtools';
 import Checkout from './Pages/Checkout';
 
 const queryClient = new QueryClient({
