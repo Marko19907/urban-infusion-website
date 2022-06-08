@@ -13,3 +13,8 @@ export interface UserDto {
     role: UserRole;
     id: number;
 }
+
+export interface UpdateUserPictureDto {
+    file: any;
+    id: number;
+}

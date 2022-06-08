@@ -62,7 +62,7 @@ function Checkout(props: Props) {
 
     const postOrderMutation = usePostOrder();
 
-    const {isLoading: isLoadingMe, data: me} = useMe();
+    const {isLoading: isLoadingMe, data: me} = useMe(props.isAuthenticated);
 
     const isLoading = isLoadingMe;
 

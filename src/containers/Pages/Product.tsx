@@ -135,7 +135,7 @@ function Product(props: Props) {
                 <Section>
                     {
                         product && (
-                            <Stack width={'100%'} spacing={16}>
+                            <Stack spacing={16} width={'100%'}>
                                 <Stack direction={{md: 'row', xs: 'column'}} spacing={8}>
                                     <Stack flex={1} alignItems={'center'} justifyContent={'center'} position={'relative'}>
                                         {
@@ -148,7 +148,7 @@ function Product(props: Props) {
                                             )
                                         }
                                         <img
-                                            style={{height: 320, width: 320}}
+                                            style={{height: 'auto', width: 320}}
                                             src={getProductImageURL(product.id)}
                                             alt={''}
                                         />
@@ -206,8 +206,9 @@ function Product(props: Props) {
                                     <Typography variant={'h5'}>Comments</Typography>
                                     {
                                         props.isAuthenticated && (
-                                            <Stack width={'100%'} spacing={4} alignItems={'start'}>
+                                            <Stack width={'100%'} spacing={4}>
                                                 <Button
+                                                    sx={{alignSelf: 'start'}}
                                                     variant={'contained'}
                                                     endIcon={
                                                         <ExpandMoreIcon
@@ -240,8 +241,8 @@ function Product(props: Props) {
                                                             <Comment
                                                                 key={comment.id}
                                                                 comment={comment}
-                                                                isAdmin={me?.role === UserRole.ADMIN}
-                                                                isMe={me?.id === comment.user.id}
+                                                                isAdmin={me?.role === UserRole.ADMIN && props.isAuthenticated}
+                                                                isMe={me?.id === comment.user.id && props.isAuthenticated}
                                                                 onEdit={handleUpdateComment}
                                                                 onDelete={handleDeleteComment}
                                                             />

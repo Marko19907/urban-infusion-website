@@ -65,3 +65,13 @@ export function isEmailAddress(input: string): boolean {
     }
     return /^\S+@\S+\.\S+$/.test(input);
 }
+
+export const doesImageExist = (url: string): Promise<boolean> => {
+    return new Promise((resolve) => {
+        const img = new Image();
+
+        img.src = url;
+        img.onload = () => resolve(true);
+        img.onerror = () => resolve(false);
+    });
+};

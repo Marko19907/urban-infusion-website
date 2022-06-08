@@ -46,10 +46,15 @@ export default function Order(props: Props) {
             : total;
     };
 
+    const filterLength = (str: string, maxLength: number) => {
+        return str.length > maxLength ? str.slice(0, maxLength) + '...' : str;
+    };
+
     return (
         <>
             <Paper variant={'outlined'}>
-                <Stack p={4} direction={'row'} bgcolor={theme.palette.primary.light}>
+                <Stack p={4} spacing={8} direction={'row'} bgcolor={theme.palette.primary.light}
+                       sx={{overflowY: 'auto'}}>
                     <Typography flex={1} fontWeight={600}>
                         {props.order.date}
                     </Typography>
@@ -58,12 +63,12 @@ export default function Order(props: Props) {
                     </Typography>
                     {
                         props.admin && (
-                            <Typography flex={1} textAlign={{md: 'right', xs: 'center'}} fontWeight={600}>
+                            <Typography flex={1} textAlign={'center'} fontWeight={600}>
                                 User
                             </Typography>
                         )
                     }
-                    <Typography flex={1} textAlign={{md: 'right', xs: 'center'}} fontWeight={600}>
+                    <Typography flex={1} textAlign={'center'} fontWeight={600}>
                         Products
                     </Typography>
                     <Typography flex={1} textAlign={'right'} fontWeight={600}>
@@ -71,7 +76,7 @@ export default function Order(props: Props) {
                     </Typography>
                 </Stack>
                 <Divider/>
-                <Stack p={4} direction={'row'} alignItems={'center'}>
+                <Stack p={4} spacing={8} sx={{overflowY: 'auto'}} direction={'row'} alignItems={'center'}>
                     {
                         props.admin && props.onChangeStatus
                             ? (
@@ -82,7 +87,7 @@ export default function Order(props: Props) {
                                         onChange={handleChangeOrderStatus}
                                     >
                                         {
-                                            enumValues(OrderStatus).map(option => (
+                                            enumValues(OrderStatus).map((option) => (
                                                 <MenuItem key={option} value={option}>
                                                     <Stack direction={'row'} spacing={2}>
                                                         {getStatusIcon(option as OrderStatus)}
@@ -110,8 +115,8 @@ export default function Order(props: Props) {
                     </Stack>
                     {
                         props.admin && (
-                            <Stack flex={1} spacing={2}>
-                                <Typography textAlign={{md: 'right', xs: 'center'}}>
+                            <Stack flex={1} spacing={2} textAlign={'center'}>
+                                <Typography>
                                     {props.order.user.username}
                                 </Typography>
                             </Stack>
@@ -123,13 +128,15 @@ export default function Order(props: Props) {
                                 <Stack
                                     alignItems={'center'}
                                     direction={'row'}
-                                    alignSelf={{md: 'end', xs: 'center'}}
+                                    textAlign={'center'}
+                                    alignSelf={'center'}
                                     spacing={1}
                                     key={product.id}
                                 >
                                     <img src={getProductImageURL(product.id)} alt={''} style={{width: 32, height: 32}}/>
                                     <Typography>
-                                        <UnstyledLink to={`/product/${product.id}`}>{product.title}</UnstyledLink>
+                                        <UnstyledLink
+                                            to={`/product/${product.id}`}>{filterLength(product.title, 15)}</UnstyledLink>
                                         <span> {quantity > 1 ? `x${quantity}` : null}</span>
                                     </Typography>
                                     <Typography color={'error'} variant={'subtitle2'}>
@@ -139,7 +146,7 @@ export default function Order(props: Props) {
                             ))
                         }
                     </Stack>
-                    <Stack flex={1} spacing={4}>
+                    <Stack flex={1} spacing={4} height={'100%'}>
                         {
                             props.order.products.map(({product, quantity}) => (
                                 product.discount > 0 && !props.onChangeStatus
@@ -160,9 +167,11 @@ export default function Order(props: Props) {
                                         </Stack>
                                     )
                                     : (
-                                        <Typography textAlign={'right'} key={product.id}>
-                                            ${getTotalPrice(product.price, quantity)}
-                                        </Typography>
+                                        <Stack key={product.id}>
+                                            <Typography textAlign={'right'} key={product.id}>
+                                                ${getTotalPrice(product.price, quantity)}
+                                            </Typography>
+                                        </Stack>
                                     )
                             ))
                         }

@@ -111,6 +111,9 @@ export default function EditableProductCard(props: Props) {
                                         style={{
                                             height: 32,
                                             width: 32,
+                                            background: theme.palette.primary.light,
+                                            borderRadius: '50%',
+                                            padding: 4,
                                             cursor: 'pointer',
                                             color: theme.palette.primary.main
                                         }}

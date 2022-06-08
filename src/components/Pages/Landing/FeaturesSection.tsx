@@ -1,4 +1,4 @@
-import {Box, Chip, Fade, Grid, Stack, Typography, useTheme} from '@mui/material';
+import {Chip, Fade, Stack, Typography, useTheme} from '@mui/material';
 import {useNavigate} from 'react-router-dom';
 import Section from '../../Wrappers/Section';
 import {ReactElement, useState} from 'react';
@@ -6,7 +6,7 @@ import {useInView} from 'react-intersection-observer';
 import BlackTea from '../../../assets/images/tea/black-tea.png';
 import DarkTea from '../../../assets/images/tea/dark-tea.png';
 import GreenTea from '../../../assets/images/tea/green-tea.png';
-import WhiteTea from '../../../assets/images/tea/white-tea.jpg';
+import WhiteTea from '../../../assets/images/tea/white-tea.png';
 import SpaOutlinedIcon from '@mui/icons-material/SpaOutlined';
 import SelfImprovementOutlinedIcon from '@mui/icons-material/SelfImprovementOutlined';
 import FactCheckOutlinedIcon from '@mui/icons-material/FactCheckOutlined';
@@ -19,7 +19,7 @@ export default function FeaturesSection() {
     return (
         <>
             <Section label={'Products'}>
-                <Stack spacing={32}>
+                <Stack alignItems={'center'} spacing={32}>
                     <Feature
                         navigation={'black tea'}
                         header={'Black tea'}
@@ -105,42 +105,25 @@ function Feature(props: FeatureProps) {
                 addEndListener={() => setDidAnimate(true)}
                 timeout={1500}
             >
-                <Grid
+                <Stack
+                    direction={{md: props.flipped ? 'row-reverse' : 'row', xs: 'column'}}
+                    alignItems={'center'}
+                    width={'100%'}
                     ref={ref}
-                    container
-                    spacing={8}
-                    sx={{
-                        flexDirection: props.flipped ? 'row-reverse' : 'row',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                    }}
+                    spacing={4}
+                    minHeight={250}
                 >
-                    <Grid md={6} item container justifyContent={'center'}>
-                        <img
-                            src={props.image_url}
-                            style={{width: 400}}
-                            alt={''}
-                        />
-                    </Grid>
-                    <Grid
-                        md={6}
-                        item
-                        container
-                        sx={{
-                            minHeight: {md: 300, xs: 250},
-                            justifyContent: 'space-between',
-                            flexDirection: 'column',
-                        }}
-                    >
-                        <Box sx={{mb: 4, alignSelf: {md: 'start', xs: 'center'}}}>
-                            <Typography
-                                pb={4}
-                                variant={'h4'}
-                                component={'h3'}
-                                sx={{textAlign: {xs: 'center', md: 'left'}}}
-                            >
-                                {props.header}
-                            </Typography>
+                    <Stack width={'100%'} height={'100%'}  flex={1} alignItems={'center'} justifyContent={'center'}>
+                        <img src={props.image_url} alt={''} style={{width: 300, height: 'auto'}}/>
+                    </Stack>
+                    <Stack height={'100%'} width={'100%'} flex={1} spacing={6} alignItems={{md: 'flex-start', xs: 'center'}}>
+                        <Typography
+                            variant={'h4'}
+                            sx={{textAlign: {xs: 'center', md: 'left'}}}
+                        >
+                            {props.header}
+                        </Typography>
+                        <Stack direction={'row'} spacing={2}>
                             {
                                 Object.keys(props.description).map((key, i) => (
                                     <Chip
@@ -150,7 +133,6 @@ function Feature(props: FeatureProps) {
                                         variant={currentItem === key ? 'filled' : 'outlined'}
                                         onClick={() => setCurrentItem(key)}
                                         sx={{
-                                            mr: 2,
                                             alignSelf: {md: 'start', xs: 'center'},
                                             textTransform: 'capitalize',
                                         }}
@@ -158,46 +140,39 @@ function Feature(props: FeatureProps) {
                                     />
                                 ))
                             }
-                        </Box>
-                        {
-                            Object.entries(props.description).map(([key, value]) => (
-                                <Fade key={key} in={key === currentItem} timeout={500}>
-                                    <Typography
-                                        sx={{
-                                            display: key === currentItem ? 'block' : 'none',
-                                            whiteSpace: 'pre-line',
-                                            textAlign: {xs: 'center', md: 'left'}
-                                        }}
-                                    >
-                                        {value}
-                                    </Typography>
-                                </Fade>
-                            ))
-                        }
-                        <Box
-                            sx={{
-                                pt: 4,
-                                display: 'flex',
-                                width: '100%',
-                                justifyContent: {xs: 'center', md: `${props.flipped ? 'flex-start' : 'flex-end'}`}
-                            }}
-                        >
-                            <UnstyledLink to={`/products/all`}>
-                                <Stack
-                                    alignItems={'center'}
-                                    direction={'row'}
-                                    spacing={1}
-                                    color={theme.palette.primary.main}
-                                >
-                                    <Typography>
-                                        Get now
-                                    </Typography>
-                                    <ArrowRightAltIcon/>
-                                </Stack>
-                            </UnstyledLink>
-                        </Box>
-                    </Grid>
-                </Grid>
+                        </Stack>
+                        <Stack flex={1} justifyContent={'center'}>
+                            {
+                                Object.entries(props.description).map(([key, value]) => (
+                                    <Fade key={key} in={key === currentItem} timeout={500}>
+                                        <Typography
+                                            sx={{
+                                                display: key === currentItem ? 'block' : 'none',
+                                                whiteSpace: 'pre-line',
+                                                textAlign: {xs: 'center', md: 'left'}
+                                            }}
+                                        >
+                                            {value}
+                                        </Typography>
+                                    </Fade>
+                                ))
+                            }
+                        </Stack>
+                        <UnstyledLink to={`/products/all`}>
+                            <Stack
+                                alignSelf={'flex-start'}
+                                direction={'row'}
+                                spacing={1}
+                                color={theme.palette.primary.main}
+                            >
+                                <Typography>
+                                    Get now
+                                </Typography>
+                                <ArrowRightAltIcon/>
+                            </Stack>
+                        </UnstyledLink>
+                    </Stack>
+                </Stack>
             </Fade>
         </>
     );

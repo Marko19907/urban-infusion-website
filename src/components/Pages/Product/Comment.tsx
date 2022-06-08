@@ -1,11 +1,12 @@
-import {Avatar, Button, IconButton, Paper, Stack, TextField, Tooltip, Typography, useTheme} from '@mui/material';
-import {stringToColor} from '../../../utils/utils';
+import {Button, IconButton, Paper, Stack, TextField, Tooltip, Typography, useTheme} from '@mui/material';
 import {CommentDto, UpdateCommentDto} from '../../../api/urbaninfusion/dto/comment-dto';
 import {formatDate} from '../../../utils/dateParser';
 import TimeAgo from 'react-timeago';
 import {useState} from 'react';
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import {UserAvatar} from '../../UserAvatar';
+import {getUserImageURL} from '../../../api/urbaninfusion/public/users';
 
 interface Props {
     comment: CommentDto;
@@ -74,9 +75,10 @@ export default function Comment(props: Props) {
                             alignItems={'center'}
                             spacing={4}
                         >
-                            <Avatar sx={{bgcolor: `${stringToColor(props.comment.user.username)}`}}>
-                                {props.comment.user.username?.[0]}
-                            </Avatar>
+                            <UserAvatar
+                                name={props.comment.user.username}
+                                src={`${getUserImageURL(props.comment.user.id)}#${Math.random()}`}
+                            />
                             <Stack>
                                 <Typography>
                                     {props.comment.user.username}

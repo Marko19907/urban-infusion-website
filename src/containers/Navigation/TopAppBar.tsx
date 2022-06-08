@@ -10,6 +10,7 @@ import {connect} from 'react-redux';
 import UnstyledLink from '../../components/UnstyledLink';
 import ProductNavigation from './ProductNavigation';
 import useMe from '../../hooks/users/useMe';
+import {getUserImageURL} from '../../api/urbaninfusion/public/users';
 
 const mapStateToProps = (state: RootState) => {
     return {
@@ -45,9 +46,9 @@ function TopAppBar(props: Props) {
                         alignItems={'center'}
                     >
                         <Stack px={4} width={'100%'} direction={'row'} alignItems={'center'}>
-                            <Stack>
-                                <Logo clickable onClick={() => navigate('/')}/>
-                            </Stack>
+                            <UnstyledLink to={'/'}>
+                                <Logo clickable/>
+                            </UnstyledLink>
                             <Stack
                                 direction={'row'}
                                 spacing={2}
@@ -61,7 +62,10 @@ function TopAppBar(props: Props) {
                                 <CartButton itemsCount={props.cartItemCount}/>
                                 {
                                     props.isAuthenticated
-                                        ? <AccountButton name={user?.username || ''}/>
+                                        ? <AccountButton
+                                            img={`${getUserImageURL(user?.id)}#${Math.random()}`}
+                                            name={user?.username}
+                                        />
                                         : (<UnstyledLink to={'/login'}>
                                             <Button variant={'contained'}>
                                                 Login

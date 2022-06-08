@@ -52,10 +52,7 @@ function Testimonial(props: TestimonialProps) {
                 <Avatar
                     src={props.image_url}
                     alt={''}
-                    sx={{
-                        width: 72,
-                        height: 72
-                    }}
+                    sx={{width: 72, height: 72}}
                 />
                 <Typography fontFamily={'nantes'} variant={'h4'} textAlign={'center'}>
                     <q>{props.comment}</q>

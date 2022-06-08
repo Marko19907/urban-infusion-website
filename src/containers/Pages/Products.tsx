@@ -103,13 +103,23 @@ function Products(props: Props) {
                         py={4}
                         spacing={4}
                         direction={'row'}
+                        sx={{
+                            overflowY: 'auto',
+                            '-webkit-scrollbar': {
+                                display: 'none',
+                            },
+                            '-ms-overflow-style': 'none',
+                            scrollbarWidth: 0,
+                        }}
                     >
                         <TextField
                             value={search}
                             onChange={(event) => setSearch(event.target.value)}
                             InputProps={{
-                                startAdornment: <InputAdornment position={'start'}><SearchOutlinedIcon/></InputAdornment>,
+                                startAdornment: <InputAdornment
+                                    position={'start'}><SearchOutlinedIcon/></InputAdornment>,
                             }}
+                            sx={{minWidth: 150}}
                             placeholder={'Type here...'}
                             size={'small'}
                             label={'Search'}
@@ -132,13 +142,12 @@ function Products(props: Props) {
                                 <Grid container spacing={4}>
                                     {
                                         filtered.map(product => (
-                                            <Grid item md={3} xs={6}>
+                                            <Grid item md={3} sm={6} xs={12} key={product.id}>
                                                 <ProductCard
                                                     sx={{height: '100%'}}
                                                     addable
                                                     onAddToCart={handleAddToCart}
                                                     data={product}
-                                                    key={product.id}
                                                     img={getProductImageURL(product.imageId)}
                                                 />
                                             </Grid>

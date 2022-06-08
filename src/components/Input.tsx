@@ -26,7 +26,7 @@ export default function Input(props: Props) {
                         {props.label}
                     </Typography>
                 )}
-                <Stack direction={'row'} width={'100%'} spacing={2} alignItems={'center'}>
+                <Stack direction={'row'} width={'100%'} spacing={2} alignItems={'center'} sx={{overflowY: 'auto'}}>
                     {props.adornment && (
                         <Typography
                             sx={{userSelect: 'none'}}

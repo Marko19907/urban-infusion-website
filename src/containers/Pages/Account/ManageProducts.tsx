@@ -169,7 +169,7 @@ export default function ManageProducts() {
                 <Grid container spacing={4}>
                     {
                         filteredProducts.map(product => (
-                            <Grid item md={3} xs={12} key={product.id}>
+                            <Grid item md={3} sm={6} xs={12} key={product.id}>
                                 <EditableProductCard
                                     sx={{height: '100%'}}
                                     data={product}
