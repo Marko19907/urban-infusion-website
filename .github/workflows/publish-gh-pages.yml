@@ -1,0 +1,34 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - prod
+
+permissions: 
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Install and Build 🔧
+        uses: actions/checkout@v2
+      
+      - uses: borales/actions-yarn@v3.0.0
+        with:
+          cmd: install # Will run `yarn install` command
+          
+      - uses: borales/actions-yarn@v3.0.0
+        with:
+          cmd: build # Will run `yarn build` command
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: dist # The folder the action should deploy.

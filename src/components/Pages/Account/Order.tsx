@@ -169,7 +169,7 @@ export default function Order(props: Props) {
                                     : (
                                         <Stack key={product.id}>
                                             <Typography textAlign={'right'} key={product.id}>
-                                                ${getTotalPrice(product.price, quantity)}
+                                                ${getTotalPrice(product.price, quantity, product.discount)}
                                             </Typography>
                                         </Stack>
                                     )

@@ -38,7 +38,7 @@ export default function App() {
                 <PersistGate persistor={persistor} loading={<div>Loading</div>}>
                     <ThemeProvider theme={getTheme(theme)}>
                         <CssBaseline/>
-                        <BrowserRouter>
+                        <BrowserRouter basename={'/urban-infusion-website'}>
                             <TopAppBar/>
                             <Routes>
                                 <Route path={'/'} element={<Landing/>}/>
