@@ -70,7 +70,10 @@ function Account(props: Props) {
     const updateUserPictureMutation = useUpdateUserPicture();
 
     useEffect(() => {
-        if (isError || !props.isAuthenticated) {
+        if (isError) {
+            props.clearJwtToken();
+        }
+        if (!props.isAuthenticated) {
             navigate('/login');
         }
     }, [isError, props.isAuthenticated]);

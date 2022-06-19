@@ -1,6 +1,11 @@
 # Urban Infusion website, group 7
 
-This repository contains the frontend made for the Web Technologies (IDATA2301) project.
+This repository contains the frontend made for the Urban Infusion project from NTNU's Web Technologies (IDATA2301) subject.
+The project counts towards 60% of the final grade in the subject.
+
+The back-end part can be found here: [https://github.com/Marko19907/urban-infusion-server](https://github.com/Marko19907/urban-infusion-server)
+
+[![Yarn build](https://github.com/Marko19907/urban-infusion-website/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/Marko19907/urban-infusion-website/actions/workflows/main.yml)
 
 ### Built With
 * [React](https://reactjs.org) - A JavaScript framework for building user interfaces.
@@ -26,19 +31,20 @@ This is a list of things you need in order to use this application.
 
 **Via HTTPS:**
 ```sh
-git clone https://gitlab.com/web-development-group7/website.git
+git clone https://github.com/Marko19907/urban-infusion-website.git
 ```
 **Via SSH:**
 ```sh
-git clone git@gitlab.com:web-development-group7/website.git
+git clone git@github.com:Marko19907/urban-infusion-website.git
 ```
-or download it directly as a zip from [here](https://gitlab.com/web-development-group7/website/-/archive/main/website-main.zip).
+or download it directly as a zip from [here](https://github.com/Marko19907/urban-infusion-website/archive/refs/heads/main.zip).
 
 ### Usage methods
 
-#### Netlify deployment [Recommended]
+#### Deployment [Recommended]
 
-1. Head to [https://urbaninfusion.netlify.app](https://urbaninfusion.netlify.app) to see the website in operation. <br>
+1. Head to [https://urbaninfusion.netlify.app](https://urbaninfusion.netlify.app) **or** [https://marko19907.github.io/urban-infusion-website/](https://marko19907.github.io/urban-infusion-website/)
+   to see the website in operation. <br>
    This is the preferred method.
 
 ### Other usage methods

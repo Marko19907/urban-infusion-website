@@ -124,7 +124,7 @@ function Checkout(props: Props) {
             <Page isLoading={isLoading}>
                 <form onSubmit={(e) => e.preventDefault()}>
                     {
-                        !isLoading && (
+                        (!isLoading && me) && (
                             <Section>
                                 <Stack
                                     spacing={8}

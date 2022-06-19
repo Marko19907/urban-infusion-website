@@ -6,7 +6,6 @@ export default function useMe(enabled?: boolean): UseQueryResult<UserDto> {
     return useQuery(
         ['user'],
         () => getMe(), {
-            retry: 0,
             enabled: enabled,
         }
     );
