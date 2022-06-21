@@ -1,7 +1,7 @@
 import {CssBaseline, ThemeProvider} from '@mui/material';
 import {getTheme} from '../theme/theme';
 import Landing from './Pages/Landing';
-import {BrowserRouter, Navigate, Route, Routes} from 'react-router-dom';
+import {HashRouter, Navigate, Route, Routes} from 'react-router-dom';
 import {persistor, RootState, store} from '../state/store';
 import {Provider, useSelector} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
@@ -38,7 +38,7 @@ export default function App() {
                 <PersistGate persistor={persistor} loading={<div>Loading</div>}>
                     <ThemeProvider theme={getTheme(theme)}>
                         <CssBaseline/>
-                        <BrowserRouter basename={'/urban-infusion-website'}>
+                        <HashRouter basename={'/'}>
                             <TopAppBar/>
                             <Routes>
                                 <Route path={'/'} element={<Landing/>}/>
@@ -58,7 +58,7 @@ export default function App() {
                                 <Route path={'/register'} element={<Register/>}/>
                                 <Route path={'*'} element={<NotFound/>}/>
                             </Routes>
-                        </BrowserRouter>
+                        </HashRouter>
                     </ThemeProvider>
                 </PersistGate>
             </Provider>
